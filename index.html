@@ -73,25 +73,25 @@
         return this.ints.filter(intergers => intergers < 0)
       }
       getAllSquared () {
-        return this.ints.map((integer) => integer * integer)
+        return this.ints.map((integer) => integer * integer);
       }
       pop () {
-        return this.ints.pop()
+        return this.ints.pop();
       }
       push (integers) {
-        this.ints.push(integers)
-        return this.getAll()
+        this.ints.push(integers);
+        return this.getAll();
       }
       getEveryNth (n) {
-        return this.ints.filter((_, index) => index % n === 0)
+        return this.ints.filter((_, index) => index % n === 0);
       }
       getAllReversed () {
-        return this.ints.reverse()
+        return this.ints.reverse();
       }
     }
 
     // 👉 CHALLENGE 2 NerfGun
-    class NerfGun {
+  
       // 🧠 Constructor takes one argument: the total number of projectiles supported by the instance
       // 🧠 New instances initialize fully loaded and with the safety on
       // 🧠 Instances have a `shoot` method that takes no arguments:
@@ -106,6 +106,7 @@
       //      * When disengaging the safety, return "Safety disabled!"
       // 🌟 HINT: instances need to keep track of their maximum capacity as well as their current capacity
       
+      class NerfGun {
       constructor(totalNumber) {
         this.projectiles = totalNumber;
         this.capacity = totalNumber;
@@ -140,7 +141,7 @@
     }
 
     // 👉 CHALLENGE 3 EBook
-    class EBook {
+    
       // 🧠 Constructor takes two arguments:
       //      * First arg is a string with the whole text of the book
       //      * Second arg is the number of characters contained in a single page of the book
@@ -156,6 +157,7 @@
       // 🌟 HINT: remember about the `slice` method which strings and arrays have
       // ❗ Feel free to implement `back`, although this is not required nor graded
       
+      class EBook{
       constructor(string, numOfChars) {
         this.text = string;
         this.pageSize = numOfChars;
