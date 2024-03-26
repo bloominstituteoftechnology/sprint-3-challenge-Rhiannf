@@ -58,7 +58,34 @@
       // 🧠 Implement a `getAllReversed` method which returns the ints in reverse order
       // ❗ WARNING: except for `getAllReversed`, methods must respect the order of the integers
       // ❗ WARNING: note that none of the methods actually mutate the `ints` property
-
+      constructor(...integers) {
+        this.ints = integers
+      }
+      getAll() {
+        return this.ints
+      }
+      getEvens() {
+        return this.ints.filter(intergers => integers % 2 === 0)
+      }
+      getNegatives() {
+        return this.ints.filter(intergers => intergers < 0)
+      }
+      getAllSquared() {
+        return this.ints.map((integer) => integer * integer)
+      }
+      pop() {
+        return this.ints.pop()
+      }
+      push (integers) {
+        this.ints.push(integers)
+        return this.getAll()
+      }
+      getEveryNth (n) {
+        return this.ints.filter((_, index) => index % n === 0)
+      }
+      getAllReversed () {
+        return this.ints.reversed
+      }
     }
 
     // 👉 CHALLENGE 2 NerfGun
@@ -76,6 +103,34 @@
       //      * When engaging the safety, return "Safety enabled!"
       //      * When disengaging the safety, return "Safety disabled!"
       // 🌟 HINT: instances need to keep track of their maximum capacity as well as their current capacity
+      
+      constructor(totalNumber) {
+        this.projectiles = totalNumber;
+        this.capacity = totalNumber;
+        this.safetyOn = true;
+      }
+      shoot() {
+        if(this.safetyOn || this.projectiles === 0) {
+          return `Click!`
+        } else {
+          return `Bang!`
+        } 
+      }
+      reload(totalNumber) {
+        if (typeof totalNumber === 'number' && totalNumber > 0 ) {
+          this.projectiles  = Math.min(
+            this.capacity,
+            this.projectiles + totalNumber
+          )
+          return `${this.projectiles} projectiles left!`
+        } else {
+          return `Error reloading!`
+        }
+      }
+      toggleSafety() {
+        this.safetyOn = !this.safetyOn
+        return this.safetyOn ? 'Safety enabled!' : 'Safety disabled!'
+      }
 
     }
 
@@ -95,11 +150,26 @@
       //    ebook.next() // returns null
       // 🌟 HINT: remember about the `slice` method which strings and arrays have
       // ❗ Feel free to implement `back`, although this is not required nor graded
+      constructor(string, numOfCharacters) {
+        this.text = string
+        this.pageSize = numOfCharacters
+        this.currentPage = 0
+        }
 
-    }
+        next() {
+          const start = this.currentPage * pageSize
+          if (start >= this.text.length) {
+            return null
+          }
+          const end = start + this.pageSize
+          const page = this.text.slice(start, end)
+          this.currentPage++
+          return page
+        }
+      }
 
     // 👉 CHALLENGE 4 AntFarm
-    class AntFarm {
+    
       // 🧠 Constructor takes **any** number of arguments, which are strings: the names of your ants
       // 🧠 Instances of AntFarm have an `ants` property holding an array of ants:
       //      * Each ant is an object with a `name` prop and a `health` prop that starts at 100
@@ -130,7 +200,37 @@
       //      console.log(list) // prints ["a"]
       // 👉 HINT: if you are not feeling confident with map and filter, solve the problem with for loops,
       //      and with the piece of mind of all tests passing, refactor to use map/filter
+      
+      class AntFarm {
+      constructor(...antNames) {
+        this.ants = antNames.map((name) => ({ name, health: 100}))
+      }
+      work() {
+        if (this.ants.length === 0) {
+          return "No ants here. Did you work them to death?"
+        }
+        const initialAntCount = this.ants.length
 
+        this.ants = this.ants
+        .map((ant) => {
+          ant.health -= 20
+          return ant
+        })
+        .filter((ant) => ant.health > 0)
+        return `${initialAntCount} ants starting work!`
+      }
+      feed(antName) {
+        const foundAnts = this.ants.filter((ant) => ant.name === antName)
+
+        if(foundAnts.length > 0) {
+          foundAnts.forEach((ant) => {
+            ant.health += 15 
+          })
+          return "Yum!"
+        } else {
+          return `${antName} not found!`
+        }
+      }
     }
 
     // 🧪 TESTS, do not make any changes below this line ===================
