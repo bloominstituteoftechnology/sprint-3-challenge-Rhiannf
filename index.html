@@ -114,8 +114,14 @@
         if (this.safetyOn || this.projectiles === 0) {
           return `Click!`;
         } else {
+          this.projectiles--;
           return `Bang!`;
         } 
+      }
+
+      toggleSafety() {
+        this.safetyOn = !this.safetyOn;
+        return this.safetyOn ? 'Safety enabled!' : 'Safety disabled!';
       }
       
       reload(totalNumber) {
@@ -123,18 +129,12 @@
           this.projectiles  = Math.min(
             this.capacity,
             this.projectiles + totalNumber
-          )
+          );
           return `${this.projectiles} projectiles left!`;
         } else {
           return `Error reloading!`;
         }
       }
-      
-      toggleSafety() {
-        this.safetyOn = !this.safetyOn
-        return this.safetyOn ? 'Safety enabled!' : 'Safety disabled!';
-      }
-
     }
 
     // 👉 CHALLENGE 3 EBook
