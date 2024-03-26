@@ -84,7 +84,7 @@
         return this.ints.filter((_, index) => index % n === 0)
       }
       getAllReversed (integers) {
-        return this.ints.reversed
+        return this.ints.reverse()
       }
     }
 
@@ -109,27 +109,30 @@
         this.capacity = totalNumber;
         this.safetyOn = true;
       }
+      
       shoot() {
-        if(this.safetyOn || this.projectiles === 0) {
-          return `Click!`
+        if (this.safetyOn || this.projectiles === 0) {
+          return `Click!`;
         } else {
-          return `Bang!`
+          return `Bang!`;
         } 
       }
+      
       reload(totalNumber) {
         if (typeof totalNumber === 'number' && totalNumber > 0 ) {
           this.projectiles  = Math.min(
             this.capacity,
             this.projectiles + totalNumber
           )
-          return `${this.projectiles} projectiles left!`
+          return `${this.projectiles} projectiles left!`;
         } else {
-          return `Error reloading!`
+          return `Error reloading!`;
         }
       }
+      
       toggleSafety() {
         this.safetyOn = !this.safetyOn
-        return this.safetyOn ? 'Safety enabled!' : 'Safety disabled!'
+        return this.safetyOn ? 'Safety enabled!' : 'Safety disabled!';
       }
 
     }
@@ -151,20 +154,20 @@
       // 🌟 HINT: remember about the `slice` method which strings and arrays have
       // ❗ Feel free to implement `back`, although this is not required nor graded
       constructor(string, numOfCharacters) {
-        this.text = string
-        this.pageSize = numOfCharacters
-        this.currentPage = 0
+        this.text = string;
+        this.pageSize = numOfCharacters;
+        this.currentPage = 0;
         }
 
         next() {
           const start = this.currentPage * pageSize
           if (start >= this.text.length) {
-            return null
+            return null;
           }
-          const end = start + this.pageSize
-          const page = this.text.slice(start, end)
-          this.currentPage++
-          return page
+          const end = start + this.pageSize;
+          const page = this.text.slice(start, end);
+          this.currentPage++;
+          return page;
         }
       }
 
@@ -207,28 +210,29 @@
       }
       work() {
         if (this.ants.length === 0) {
-          return "No ants here. Did you work them to death?"
+          return "No ants here. Did you work them to death?";
         }
-        const initialAntCount = this.ants.length
+        
+        const initialAntCount = this.ants.length;
 
         this.ants = this.ants
         .map((ant) => {
-          ant.health -= 20
-          return ant
+          ant.health -= 20;
+          return ant;
         })
         .filter((ant) => ant.health > 0)
-        return `${initialAntCount} ants starting work!`
+        return `${initialAntCount} ants starting work!`;
       }
       feed(antName) {
         const foundAnts = this.ants.filter((ant) => ant.name === antName)
 
         if(foundAnts.length > 0) {
           foundAnts.forEach((ant) => {
-            ant.health += 15 
+            ant.health += 15; 
           })
-          return "Yum!"
+          return "Yum!";
         } else {
-          return `${antName} not found!`
+          return `${antName} not found!`;
         }
       }
     }
