@@ -153,14 +153,15 @@
       //    ebook.next() // returns null
       // 🌟 HINT: remember about the `slice` method which strings and arrays have
       // ❗ Feel free to implement `back`, although this is not required nor graded
-      constructor(string, numOfCharacters) {
+      
+      constructor(string, numOfChars) {
         this.text = string;
-        this.pageSize = numOfCharacters;
+        this.pageSize = numOfChars;
         this.currentPage = 0;
         }
 
         next() {
-          const start = this.currentPage * pageSize
+          const start = this.currentPage * this.pageSize
           if (start >= this.text.length) {
             return null;
           }
