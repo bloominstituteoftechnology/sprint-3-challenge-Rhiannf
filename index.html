@@ -61,7 +61,7 @@
       
       class Integers {
       constructor(...integers) {
-        this.ints = integers
+        this.ints = integers;
       }
       getAll () {
         return this.ints
@@ -73,20 +73,20 @@
         return this.ints.filter(intergers => intergers < 0)
       }
       getAllSquared () {
-        return this.ints.map((integer) => integer * integer);
+        return this.ints.map((integer) => integer * integer)
       }
       pop () {
-        return this.ints.pop();
+        return this.ints.pop()
       }
       push (integers) {
-        this.ints.push(integers);
-        return this.getAll();
+        this.ints.push(integers)
+        return this.getAll()
       }
       getEveryNth (n) {
-        return this.ints.filter((_, index) => index % n === 0);
+        return this.ints.filter((_, index) => index % n === 0)
       }
       getAllReversed () {
-        return this.ints.reverse();
+        return this.ints.reverse()
       }
     }
 
@@ -231,7 +231,7 @@
       feed(antName) {
         const foundAnts = this.ants.filter((ant) => ant.name === antName)
 
-        if(foundAnts.length > 0) {
+        if (foundAnts.length > 0) {
           foundAnts.forEach((ant) => {
             ant.health += 15; 
           })
