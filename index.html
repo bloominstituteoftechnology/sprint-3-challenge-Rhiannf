@@ -213,9 +213,10 @@
       constructor(...antNames) {
         this.ants = antNames.map((name) => ({ name, health: 100}))
       }
+      
       work() {
         if (this.ants.length === 0) {
-          return "No ants here. Did you work them to death?";
+          return 'No ants here. Did you work them to death?';
         }
         
         const initialAntCount = this.ants.length;
@@ -226,8 +227,10 @@
           return ant;
         })
         .filter((ant) => ant.health > 0)
+
         return `${initialAntCount} ants starting work!`;
       }
+      
       feed(antName) {
         const foundAnts = this.ants.filter((ant) => ant.name === antName)
 
@@ -235,7 +238,7 @@
           foundAnts.forEach((ant) => {
             ant.health += 15; 
           })
-          return "Yum!";
+          return 'Yum!';
         } else {
           return `${antName} not found!`;
         }
