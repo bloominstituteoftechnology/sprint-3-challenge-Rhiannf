@@ -106,7 +106,7 @@
       //      * When disengaging the safety, return "Safety disabled!"
       // 🌟 HINT: instances need to keep track of their maximum capacity as well as their current capacity
       
-      class NerfGun {
+    class NerfGun {
       constructor(totalNum) {
         this.capacity = totalNum;
         this.projectiles = totalNum;
@@ -129,7 +129,7 @@
       
       reload(totalNum) {
         if (typeof totalNum === 'number' && totalNum > 0 ) {
-          this.projectiles  = Math.min(
+          this.projectiles = Math.min(
             this.capacity,
             this.projectiles + totalNum
           );
@@ -157,7 +157,7 @@
       // 🌟 HINT: remember about the `slice` method which strings and arrays have
       // ❗ Feel free to implement `back`, although this is not required nor graded
       
-      class EBook{
+    class EBook{
       constructor(string, numOfChars) {
         this.text = string;
         this.pageSize = numOfChars;
@@ -209,7 +209,7 @@
       // 👉 HINT: if you are not feeling confident with map and filter, solve the problem with for loops,
       //      and with the piece of mind of all tests passing, refactor to use map/filter
       
-      class AntFarm {
+    class AntFarm {
       constructor(...antNames) {
         this.ants = antNames.map((name) => ({ name, health: 100}))
       }
