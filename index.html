@@ -108,17 +108,17 @@
       
       class NerfGun {
       constructor(totalNum) {
-        this.projectiles = totalNum;
         this.capacity = totalNum;
+        this.projectiles = totalNum;
         this.safetyOn = true;
       }
       
       shoot() {
         if (this.safetyOn || this.projectiles === 0) {
-          return `Click!`;
+          return 'Click!';
         } else {
           this.projectiles--;
-          return `Bang!`;
+          return 'Bang!';
         } 
       }
 
@@ -135,7 +135,7 @@
           );
           return `${this.projectiles} projectiles left!`;
         } else {
-          return `Error reloading!`;
+          return 'Error reloading!';
         }
       }
     }
