@@ -222,9 +222,9 @@
         const initialAntCount = this.ants.length;
 
         this.ants = this.ants
-        .map((ant) => {
-          ant.health -= 20;
-          return ant;
+          .map((ant) => {
+            ant.health -= 20;
+            return ant;
         })
         .filter((ant) => ant.health > 0)
 
@@ -232,7 +232,7 @@
       }
       
       feed(antName) {
-        const foundAnts = this.ants.filter((ant) => ant.name === antName)
+        const foundAnts = this.ants.filter((ant) => ant.name === antName);
 
         if (foundAnts.length > 0) {
           foundAnts.forEach((ant) => {
