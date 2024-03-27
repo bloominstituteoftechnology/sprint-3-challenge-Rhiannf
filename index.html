@@ -107,9 +107,9 @@
       // 🌟 HINT: instances need to keep track of their maximum capacity as well as their current capacity
       
       class NerfGun {
-      constructor(totalNumber) {
-        this.projectiles = totalNumber;
-        this.capacity = totalNumber;
+      constructor(totalNum) {
+        this.projectiles = totalNum;
+        this.capacity = totalNum;
         this.safetyOn = true;
       }
       
@@ -127,11 +127,11 @@
         return this.safetyOn ? 'Safety enabled!' : 'Safety disabled!';
       }
       
-      reload(totalNumber) {
-        if (typeof totalNumber === 'number' && totalNumber > 0 ) {
+      reload(totalNum) {
+        if (typeof totalNum === 'number' && totalNum > 0 ) {
           this.projectiles  = Math.min(
             this.capacity,
-            this.projectiles + totalNumber
+            this.projectiles + totalNum
           );
           return `${this.projectiles} projectiles left!`;
         } else {
